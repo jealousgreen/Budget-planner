@@ -31,9 +31,10 @@ jobs:
         uses: github/codeql-action/init@v3
         with:
           languages: java
+          build-mode: autobuild
 
-      - name: Build project
-        run: mvn -B -DskipTests package
+      - name: Build with Maven (traced by CodeQL)
+        run: mvn -B -DskipTests clean package
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
