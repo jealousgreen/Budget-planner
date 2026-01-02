@@ -5,7 +5,7 @@ on:
     branches: [ "main", "master" ]
   pull_request:
     branches: [ "main", "master" ]
-    
+
 jobs:
   analyze:
     name: Analyze (Java)
@@ -34,7 +34,6 @@ jobs:
           build-mode: manual
 
       - name: Build with Maven
-        working-directory: Budget-planner
         run: mvn -B clean package -DskipTests
 
       - name: Perform CodeQL Analysis
