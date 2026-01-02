@@ -27,14 +27,14 @@ jobs:
           java-version: 17
           cache: maven
 
-      - name: Initialize CodeQL
+      - name: Initialize CodeQL (manual build)
         uses: github/codeql-action/init@v3
         with:
           languages: java
-          build-mode: autobuild
+          build-mode: manual
 
-      - name: Build with Maven (traced by CodeQL)
-        run: mvn -B -DskipTests clean package
+      - name: Build with Maven
+        run: mvn -B clean package -DskipTests
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
